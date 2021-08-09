@@ -1,8 +1,4 @@
 :root {
-  --ph: 173;  /* Planet Color Hue */
-  --ps: 0%;   /* Planet Color Saturation */
-  --ps2: 0%;  /* Planet Color Saturation (outer - should be a bit higher) */
-  --pl: 92%;  /* optional planet baseline lightness */
   --x1:  -3.45px;   /* x-translations for floating motion */
   --x2:  -2.47px;
   --x3:  -5.80px;
@@ -36,68 +32,42 @@
   --fsmaller: 5;    /* factor to scale translations (not used) */
 }
 
-/* div holding planet and shadow */
-.planet-container{
+.outer-container{
+  display: inline-block;
   position: relative;
-  bottom: 60px;
 }
 
-/* div holding planet and text */
-.planet{
-  width:168px;
-  height:168px;
-  border-radius: 50%;
-  background: linear-gradient(hsl(var(--ph), var(--ps2), 25%) 0%, hsl(var(--ph), var(--ps2), 15%) 10%, hsl(var(--ph), var(--ps2), 6%) 50%, hsl(var(--ph), var(--ps2), 0%) 100%);
-  line-height: 0;
+/* div holding text and shadow */
+.text-container{
+
+}
+
+/* div holding text */
+.text{
   position: relative;
   cursor: pointer;
 
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
 }
 
-.planet:hover{
-  box-shadow: 0 0 25px 7px #F5FF1D;
-  bottom: 4px;
-
-}
-
-/* inner planet color gradient (keep this slightly lighter than the outer above) */
-.planet::before{
-  content: "";
-  height: 120px ;
-  width: 120px ;
-  background: linear-gradient(hsl(var(--ph), var(--ps), 76%) 0%, hsl(var(--ph), var(--ps), 17%) 60%, hsl(var(--ph), var(--ps), 8%) 100%);
-  border-radius: 50%;
-  filter: blur(17px);
-}
-
-/* optional text within planet */
-.planet-text{
-  position: absolute;
-  bottom: 50%;
-  width: 100%;
-  text-align: center;
-  color: hsl(28, 83%, 61%);
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 0 0 2px black;
+.text:hover{
+  text-shadow: 0 0 10px #F5FF1D;
+  bottom: 0.1em;
 }
 
 /* shadow for the planet */
-.planet-shadow{
+.text-shadow{
   content: '';
   position: relative;
-  width: 168px;
-  height: 50px;
-  bottom: -50px;
-  margin-left: 0px;
+  width: 100%;
+  height: 0.5em;
+  bottom: -1em;
   border-radius: 50%;
   background: rgba(0,0,0,0.4  );
   z-index: -1;
-  filter: blur(12px);
-
+  filter: blur(13px);
 }
 
 /* 3D floating motions - use different durations and patterns to keep movements out of sync */
@@ -122,22 +92,7 @@
   animation-timing-function: ease-in-out;
 }
 
-/* shaking motion before implode */
-.shake {
-  animation: shake 0.5s;
-  animation-iteration-count: 5;
-}
-
-/* hide text when clicked */
-.shrink-button {
-  animation-name: hide-text;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  }
-
-/* implode planet and shadow after click and shake */
+/* implode text and shadow after click  */
 .imploded
   {
     animation-name: implode;
@@ -145,22 +100,11 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-
   }
-
-@keyframes hide-text {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
-}
 
 @keyframes implode {
   0% {transform: scale(1, 1);}
   100% {transform: scale(0, 0);}
-}
-
-@keyframes hover-scale {
-  0% {transform: scale(1, 1);}
-  100% {transform: scale(1.1, 1.1);}
 }
 
 
@@ -208,21 +152,4 @@
     60% { transform: scale(calc(var(--s3) / 1),  calc(var(--s3) / 1)); }
     75% { transform: scale(calc(var(--s4) / 1),  calc(var(--s4) / 1)); }
     100%   { transform: translate(1, 1); }
-}
-
-
-
-/* https://www.w3schools.com/howto/howto_css_shake_image.asp */
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }

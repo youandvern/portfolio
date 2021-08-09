@@ -1,16 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import Planet from './components/Planet'
+import WordGroup from './components/WordGroup';
+import Planet from './components/Planet';
+import { useState } from 'react';
 
 function App() {
+  const [landing, setLanding] = useState(false) // landing planet has been clicked
+
   return (
     <div className="App">
       <div className="name-block">
-        <p>Andrew Young</p>
+        <h3>Andrew Young</h3>
         <p>Software Engineer</p>
       </div>
       <header className="App-header">
-        <Planet text="" />
+        <Planet text="" setFinished={setLanding}/>
+        <WordGroup display={landing}/>
+
+
       </header>
     </div>
   );

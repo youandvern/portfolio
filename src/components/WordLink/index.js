@@ -13,12 +13,12 @@ export default function Planet(props) {
 
   }
   return(
-    <div className= "outer-container floating-scale">
-      <div className="text-container floatingx">
-        <div className={clicked? "text imploded" : "text floatingy"}  onClick={handleClick}>
+    <div className= "wordlink-container floating-scale">
+      <div className= "floatingx">
+        <div className={clicked? "link-text implode" : "link-text floatingy"}  onClick={handleClick}>
         {props.text}
         </div>
-        <div className={clicked? "imploded text-shadow" : "text-shadow"}> </div>
+        <div className={clicked? "implode text-shadow" : "text-shadow"}> </div>
 
       </div>
     </div>

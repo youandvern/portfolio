@@ -1,0 +1,14 @@
+.name-block{
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 6%;
+}
+
+.name-block p,  .name-block h3{
+  margin: 0;
+  padding-left: 0;
+  font-size: 2rem;
+}
+.name-block p {
+  font-size: 1rem;
+}

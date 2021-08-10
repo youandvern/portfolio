@@ -1,15 +1,19 @@
 body {
- font-family: 'Lora', serif;
+ font-family: 'Enriqueta', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
  font-family: 'Montserrat', sans-serif;
- font-weight: 300;
+ font-weight: 600;
  text-transform: uppercase;
 }
 
 .App {
   text-align: center;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+
 }
 
 
@@ -24,18 +28,6 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
 }
 
-.name-block{
-  position:absolute;
-  text-align: left;
-  padding-top: 1em;
-}
-
-.name-block p,  .name-block h3{
-  margin: 0;
-  padding-left: 1.5rem;
-  font-size: 1.5rem;
-
-}
-.name-block p {
-  font-size: 1rem;
+.spacer-b-8{
+  padding-bottom: 8%;
 }

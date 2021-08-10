@@ -5,12 +5,12 @@
   flex-direction: row;
   justify-content: space-around;
   position: relative;
-  bottom: 228px;
+  bottom: 160px;
 
   animation-name: explode;
-  animation-duration:0.4s;
+  animation-duration:1.0s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 
 }

@@ -38,8 +38,8 @@
 
 /* div holding planet and shadow */
 .planet-container{
-  position: relative;
-  bottom: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 /* div holding planet and text */
@@ -129,7 +129,7 @@
 }
 
 /* hide text when clicked */
-.shrink-button {
+.shrink-item {
   animation-name: hide-text;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -138,12 +138,12 @@
   }
 
 /* implode planet and shadow after click and shake */
-.imploded
+.implode
   {
     animation-name: implode;
-    animation-duration:0.2s;
+    animation-duration:0.4s;
     animation-iteration-count: 1;
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 
   }

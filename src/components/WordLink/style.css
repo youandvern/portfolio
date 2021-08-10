@@ -32,27 +32,24 @@
   --fsmaller: 5;    /* factor to scale translations (not used) */
 }
 
-.outer-container{
+/* div holding text and shadow */
+.wordlink-container{
   display: inline-block;
   position: relative;
 }
 
-/* div holding text and shadow */
-.text-container{
-
-}
-
 /* div holding text */
-.text{
+.link-text{
   position: relative;
   cursor: pointer;
+  font-size: 28px;
 
   display: inline-block;
   justify-content: center;
   align-items: center;
 }
 
-.text:hover{
+.link-text:hover{
   text-shadow: 0 0 10px #F5FF1D;
   bottom: 0.1em;
 }
@@ -93,7 +90,7 @@
 }
 
 /* implode text and shadow after click  */
-.imploded
+.implode
   {
     animation-name: implode;
     animation-duration:0.2s;

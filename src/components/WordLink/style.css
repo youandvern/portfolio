@@ -1,39 +1,7 @@
-:root {
-  --x1:  -3.45px;   /* x-translations for floating motion */
-  --x2:  -2.47px;
-  --x3:  -5.80px;
-  --x4:  -8.28px;
-  --x5:  4.80px;
-  --x6:  5.16px;
-  --x7:  -2.99px;
-  --x8:  -2.63px;
-  --x9:  6.01px;
-  --x10:  0.54px;
-  --x11:  7.49px;
-  --x12:  -0.04px;
-  --x13:  -1.92px;
-  --y1 :  9.62px;
-  --y2 :  1.19px;   /* y-translations for floating motion */
-  --y3 :  6.10px;
-  --y4 :  9.97px;
-  --y5 :  -8.93px;
-  --y6 :  9.28px;
-  --y7 :  9.87px;
-  --y8 :  1.12px;
-  --y9 :  -2.70px;
-  --y10 :  -6.32px;
-  --y11 :  3.41px;
-  --y12 :  -4.81px;
-  --y13 :  9.57px;
-  --s1 : 0.98;      /* scale factors for 3D floating motion */
-  --s2 : 0.96;
-  --s3 : 1.01;
-  --s4 : 1.03;
-  --fsmaller: 5;    /* factor to scale translations (not used) */
-}
+
 
 /* div holding text and shadow */
-.wordlink-container{
+.wordlink-outer-container{
   display: inline-block;
   position: relative;
 }
@@ -43,6 +11,10 @@
   position: relative;
   cursor: pointer;
   font-size: 28px;
+  text-shadow: 1px -1px 0 hsl(173, 0%, 70%),
+        -1px -1px 0 hsl(173, 0%, 70%),
+        1px -2px 0 hsl(173, 0%, 50%),
+        -1px -2px 0 hsl(173, 0%, 50%);
 
   display: inline-block;
   justify-content: center;
@@ -65,88 +37,4 @@
   background: rgba(0,0,0,0.4  );
   z-index: -1;
   filter: blur(13px);
-}
-
-/* 3D floating motions - use different durations and patterns to keep movements out of sync */
-.floatingx {
-    animation-name: floatingx;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-.floatingy {
-    animation-name: floatingy;
-    animation-duration: 18s;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-.floating-scale {
-  animation-name: floating-scale;
-  animation-duration: 11s;
-  animation-delay: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-/* implode text and shadow after click  */
-.implode
-  {
-    animation-name: implode;
-    animation-duration:0.2s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-  }
-
-@keyframes implode {
-  0% {transform: scale(1, 1);}
-  100% {transform: scale(0, 0);}
-}
-
-
-@keyframes floatingx {
-    0% { transform: translate(0,  0px); }
-    10% { transform: translate(calc(var(--x1) / 1), 0); }
-    15% { transform: translate(calc(var(--x2) / 1),  0); }
-    20% { transform: translate(calc(var(--x3)/1),  0); }
-    25% { transform: translate(calc(var(--x4)/1),  0); }
-    30% { transform: translate(calc(var(--x5)/1),  0); }
-    40% { transform: translate(calc(var(--x6)/1),  0); }
-    50% { transform: translate(calc(var(--x7)/1),  0); }
-    58%  { transform: translate(calc(var(--x8)/1), 0); }
-    70%  { transform: translate(calc(var(--x9)/1), 0); }
-    75%  { transform: translate(calc(var(--x10)/1), 0); }
-    83%  { transform: translate(calc(var(--x11)/1), 0); }
-    90%  { transform: translate(calc(var(--x12)/1), 0); }
-    96%  { transform: translate(calc(var(--x13)/1), 0); }
-    100%   { transform: translate(0, -0px); }
-}
-
-@keyframes floatingy {
-    0% { transform: translate(0,  0px); }
-    10% { transform: translate(0, calc(var(--y1)/1)); }
-    15% { transform: translate(0,  calc(var(--y2)/1)); }
-    20% { transform: translate(0,  calc(var(--y3)/1)); }
-    25% { transform: translate(0,  calc(var(--y4)/1)); }
-    30% { transform: translate(0,  calc(var(--y5)/1)); }
-    40% { transform: translate(0,  calc(var(--y6)/1)); }
-    50% { transform: translate(0,  calc(var(--y7)/1)); }
-    58%  { transform: translate(0, calc(var(--y8)/1)); }
-    70%  { transform: translate(0, calc(var(--y9)/1)); }
-    75%  { transform: translate(0, calc(var(--y10)/1)); }
-    83%  { transform: translate(0, calc(var(--y11)/1)); }
-    90%  { transform: translate(0, calc(var(--y12)/1)); }
-    96%  { transform: translate(0, calc(var(--y13)/1)); }
-    100%   { transform: translate(0, -0px); }
-}
-
-
-@keyframes floating-scale {
-    0% { transform: scale(1,  1); }
-    20% { transform: scale(calc(var(--s1) / 1),  calc(var(--s1) / 1)); }
-    35% { transform: scale(calc(var(--s2) / 1),  calc(var(--s2) / 1)); }
-    60% { transform: scale(calc(var(--s3) / 1),  calc(var(--s3) / 1)); }
-    75% { transform: scale(calc(var(--s4) / 1),  calc(var(--s4) / 1)); }
-    100%   { transform: translate(1, 1); }
 }

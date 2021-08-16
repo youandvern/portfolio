@@ -9,7 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <NameBlock />
-        <PageScheduler />
+        <div className="page-placeholder">
+          <PageScheduler />
+        </div>
         <div className="spacer-b-8"></div>
       </header>
     </div>

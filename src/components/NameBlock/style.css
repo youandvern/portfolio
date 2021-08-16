@@ -1,7 +1,7 @@
 .name-block{
   text-align: center;
   padding-top: 1em;
-  padding-bottom: 6%;
+  padding-bottom: max(15vh, 70px);
 }
 
 .name-block p,  .name-block h3{

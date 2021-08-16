@@ -3,37 +3,7 @@
   --ps: 0%;   /* Planet Color Saturation */
   --ps2: 0%;  /* Planet Color Saturation (outer - should be a bit higher) */
   --pl: 92%;  /* optional planet baseline lightness */
-  --x1:  -3.45px;   /* x-translations for floating motion */
-  --x2:  -2.47px;
-  --x3:  -5.80px;
-  --x4:  -8.28px;
-  --x5:  4.80px;
-  --x6:  5.16px;
-  --x7:  -2.99px;
-  --x8:  -2.63px;
-  --x9:  6.01px;
-  --x10:  0.54px;
-  --x11:  7.49px;
-  --x12:  -0.04px;
-  --x13:  -1.92px;
-  --y1 :  9.62px;
-  --y2 :  1.19px;   /* y-translations for floating motion */
-  --y3 :  6.10px;
-  --y4 :  9.97px;
-  --y5 :  -8.93px;
-  --y6 :  9.28px;
-  --y7 :  9.87px;
-  --y8 :  1.12px;
-  --y9 :  -2.70px;
-  --y10 :  -6.32px;
-  --y11 :  3.41px;
-  --y12 :  -4.81px;
-  --y13 :  9.57px;
-  --s1 : 0.98;      /* scale factors for 3D floating motion */
-  --s2 : 0.96;
-  --s3 : 1.01;
-  --s4 : 1.03;
-  --fsmaller: 5;    /* factor to scale translations (not used) */
+
 }
 
 /* div holding planet and shadow */

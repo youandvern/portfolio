@@ -11,7 +11,7 @@ export default function Step2(props) {
   const menu_refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   function finishStep(){
-    props.onFinish(true);
+    props.onFinish(false);
   }
 
   function renderMotion() {
@@ -64,25 +64,31 @@ export default function Step2(props) {
 
   function handleTextClick (id, reference) {
 
-    gsap.to('#'+id, {y: 50, duration: 0.5, ease:"none"});
+    let first_click_tl = gsap.timeline({onComplete: finishStep});
+
     const idno = id.slice(4);
+    const def_delay = 0.4;
     const words = gsap.utils.toArray(".wordlink-outer-container");
-    gsap.to(".text-shadow", {scale: 0, ease:"power3.in", duration:0.4});
+    gsap.to(".text-shadow", {scale: 0, ease:"power3.in", duration: def_delay});
     for (let i=0; i<4; i++) {
       let x_trans = 2000;
+      let spin_dur = 0.6 * Math.abs(idno-i);
+      let tran_dur =  1.4 * Math.abs(idno-i);
+      let spin_rep = Math.ceil( 3 / spin_dur);
       if (i < idno){
-        gsap.to(words[i], {x: -x_trans, duration: 2});
-        gsap.to(words[i], {rotation: '-=360', duration: 0.4, repeat:-1});
+        first_click_tl.to(words[i], {x: -x_trans, duration: tran_dur}, def_delay);
+        first_click_tl.to(words[i], {rotation: '-=360', duration: spin_dur, repeat:spin_rep}, def_delay);
       } else if (i == idno) {
-        gsap.to(words[i], {scale: 0, ease:"power3.in", duration:0.4});
+        first_click_tl.to(words[i], {scale: 0, ease:"power3.in", duration:def_delay}, 0);
       } else {
-        gsap.to(words[i], {x: x_trans, duration: 2});
-        gsap.to(words[i], {rotation: '+=360', duration: 0.4, repeat:-1});
+        first_click_tl.to(words[i], {x: x_trans, duration: tran_dur}, def_delay);
+        first_click_tl.to(words[i], {rotation: '+=360', duration: spin_dur, repeat:spin_rep}, def_delay);
       }
     }
 
+    setTimeout( () => props.onNext(true), 400);
     cleanTimelines();
-    // console.log(reference.current.getBoundingClientRect());
+    console.log(reference.current.getBoundingClientRect());
   }
 
 

@@ -10,7 +10,8 @@ export default function Step1(props) {
   // props.onFinish()
 
   function finishStep(){
-    props.onFinish(true);
+    props.onFinish(false);
+    props.onNext(true)
   }
 
   useEffect(() => {

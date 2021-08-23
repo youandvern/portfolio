@@ -1,12 +1,16 @@
 :root{
   --pers: -500px;
 }
+
+body{
+  overflow: hidden;
+}
 .project-carousel-container{
   margin: 0 auto;
   width: 450px;
   height: 400px;
   position: absolute;
-  perspective: 1000px;
+  perspective: 1300px;
 }
 
 .project-carousel{

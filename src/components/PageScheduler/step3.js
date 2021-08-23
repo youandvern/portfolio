@@ -5,13 +5,24 @@ import {getRndWave, getRndScale, getRndDuration, getRndAmount} from './waves.js'
 import ProjectCarousel from '../ProjectCarousel';
 
 // props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
-export default function Step2(props) {
+export default function Step3(props) {
   //
   // props.onFinish()
 
   function finishStep(){
-    props.onFinish(true);
+    props.onFinish(false);
+    props.onNext(true);
   }
+
+  function renderMotion() {
+    gsap.to(".project-carousel-container", {scale:1, duration: 1, ease: "sine.inOut"});
+    gsap.from(".project-carousel-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
+  };
+
+  useEffect(() => {
+    renderMotion();
+    startWaveMotion();
+  }, []);
 
 
   function cleanTimelines(){

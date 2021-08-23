@@ -62,7 +62,12 @@ export default function Step2(props) {
     scale_float.to(".wordlink-outer-container", {scale: 1, ease: "sine.inOut", duration: getRndDuration(), stagger: {from:"center", amount:getRndAmount()}}, s_d_sum);
   }
 
-  function handleTextClick (id, reference) {
+  function handleContainerClick (reference) {
+    let click_position = reference.current.getBoundingClientRect();
+    props.setClickPos({x: (click_position.x + click_position.width / 2 ), y: click_position.y})
+  }
+
+  function handleTextClick (id) {
 
     let first_click_tl = gsap.timeline({onComplete: finishStep});
 
@@ -72,8 +77,8 @@ export default function Step2(props) {
     gsap.to(".text-shadow", {scale: 0, ease:"power3.in", duration: def_delay});
     for (let i=0; i<4; i++) {
       let x_trans = 2000;
-      let spin_dur = 0.6 * Math.abs(idno-i);
-      let tran_dur =  1.4 * Math.abs(idno-i);
+      let spin_dur = 0.9 * Math.abs(idno-i);
+      let tran_dur =  1.8 * Math.abs(idno-i);
       let spin_rep = Math.ceil( 3 / spin_dur);
       if (i < idno){
         first_click_tl.to(words[i], {x: -x_trans, duration: tran_dur}, def_delay);
@@ -88,12 +93,11 @@ export default function Step2(props) {
 
     setTimeout( () => props.onNext(true), 400);
     cleanTimelines();
-    console.log(reference.current.getBoundingClientRect());
   }
 
 
   return (
-    <WordGroup onClick={handleTextClick} references={menu_refs}/>
+    <WordGroup onClick={handleTextClick} onContainerClick={handleContainerClick} references={menu_refs}/>
   )
 
 }

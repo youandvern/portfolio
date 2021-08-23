@@ -32,6 +32,12 @@ const proxy_server = {
   technologies: ["C", "libcurl"]
 }
 
+const mars_glider = {
+  title: "Particle Filter Glider",
+  description: "Implemented tuned particle filter algorithms to localize and navigate a glider robot given a map and noisy elevation readings.",
+  technologies: ["Python", "particle filter"]
+}
 
 
-export {encomp_text, etabs_optimizer};
+
+export {encomp_text, etabs_optimizer, gem_finder, distributed_file, proxy_server, mars_glider};

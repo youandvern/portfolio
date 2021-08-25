@@ -15,8 +15,8 @@ export default function Step3(props) {
   }
 
   function renderMotion() {
-    gsap.to(".project-carousel-container", {scale:1, duration: 1, ease: "sine.inOut"});
-    gsap.from(".project-carousel-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
+    gsap.to(".main-outer-container", {scale:1, duration: 1, ease: "sine.inOut"});
+    gsap.from(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
   };
 
   useEffect(() => {

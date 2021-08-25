@@ -34,7 +34,7 @@
 }
 
 .project-image img{
-  width: 300px;
+  width: 400px;
   height: 200px;
 }
 
@@ -46,4 +46,9 @@
   text-align: left;
   font-size: 20px;
   padding-bottom: 0.5em;
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
 }

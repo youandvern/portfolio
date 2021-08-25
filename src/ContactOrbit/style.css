@@ -1,8 +1,8 @@
 :root{
-  --pers: -500px;
+  --orbit: -500px;
 }
 
-.project-carousel-container{
+.contact-orbit-container{
   margin: 0 auto;
   width: 486px;
   height: 400px;
@@ -11,14 +11,14 @@
   perspective: 1300px;
 }
 
-.project-carousel{
+.contact-orbit{
   height: 100%;
   width: 100%;
   position: absolute;
   transform-style: preserve-3d;
 }
 
-.carousel-buttons{
+.orbit-buttons{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,17 +29,13 @@
 
 }
 
-.carousel-buttons p{
+.orbit-buttons p{
   padding-left: 0.5em;
   padding-right: 0.5em;
   margin: 0;
   cursor: pointer;
   font-weight: bold;
   font-size: 30px;
-}
-
-.carousel-home{
-  font-size: 0.8em;
 }
 
 .a{

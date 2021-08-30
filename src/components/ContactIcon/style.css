@@ -1,0 +1,50 @@
+
+.orbit-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 20vh;
+  height: 30vh;
+  font-size: 4em;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.orbit-card a{
+  color: black;
+}
+
+.orbit-card-shadow{
+  content: '';
+  position: relative;
+  width: 1em;
+  height: 0.25em;
+  bottom: -0.1em;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4 );
+  z-index: -5;
+  filter: blur(0.1em);
+  transform: translateZ(0.05em);
+}
+
+.orbit-card-shadow-3d{
+  content: '';
+  position: relative;
+  width: 0.1em;
+  height: 0.25em;
+  top: -0.18em;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4 );
+  z-index: -10;
+  filter: blur(0.05em);
+  transform: translateZ(0.05em) rotateY(-90deg);
+  transform-origin: 100% 50%;
+}
+
+
+.orbit-card-icon{
+  width: auto;
+  height: auto;
+}

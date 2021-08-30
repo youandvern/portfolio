@@ -3,6 +3,7 @@ import {useEffect, useRef } from 'react';
 import {gsap} from 'gsap';
 import {getRndWave, getRndScale, getRndDuration, getRndAmount} from './waves.js'
 import ProjectCarousel from '../ProjectCarousel';
+import ContactOrbit from '../ContactOrbit';
 
 // props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
 export default function Step3(props) {
@@ -22,6 +23,7 @@ export default function Step3(props) {
   useEffect(() => {
     renderMotion();
     startWaveMotion();
+    console.log(props.renderPage);
   }, []);
 
 
@@ -41,7 +43,8 @@ export default function Step3(props) {
 
   return (
     <>
-      <ProjectCarousel />
+      {(props.renderPage == "menu0") && <ProjectCarousel />}
+      {(props.renderPage == "menu2") && <ContactOrbit /> }
     </>
   )
 

@@ -19,7 +19,7 @@ export default function PageScheduler(props) {
     <>
     {page1 && <Step1 onFinish={setPage1} onNext={setPage2}/> }
     {page2 && <Step2 onFinish={setPage2} onNext={setPage3} setClickPos={setClickPos}/> }
-    {page3 && <Step3 onFinish={setPage3} fromPos={clickPos} />}
+    {page3 && <Step3 onFinish={setPage3} fromPos={clickPos} renderPage={page3} />}
     </>
   )
 }

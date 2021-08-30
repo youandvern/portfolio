@@ -9,6 +9,7 @@ export default function Step2(props) {
   // props.onFinish()
 
   const menu_refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  let menu_id = 'menu0';
 
   function finishStep(){
     props.onFinish(false);
@@ -68,7 +69,7 @@ export default function Step2(props) {
   }
 
   function handleTextClick (id) {
-
+    menu_id = id;
     let first_click_tl = gsap.timeline({onComplete: finishStep});
 
     const idno = id.slice(4);
@@ -91,7 +92,7 @@ export default function Step2(props) {
       }
     }
 
-    setTimeout( () => props.onNext(true), 400);
+    setTimeout( () => props.onNext(menu_id), 400);
     cleanTimelines();
   }
 

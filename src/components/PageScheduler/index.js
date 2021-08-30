@@ -15,11 +15,24 @@ export default function PageScheduler(props) {
   const [page3, setPage3] = useState(false);
   const [clickPos, setClickPos ] = useState({x:0, y:0});
 
+  const [renderStep2, setRenderStep2] = useState(false);
+
+  useEffect(() => {
+    console.log(page2);
+    if (page2) {
+      setRenderStep2( <Step2 onFinish={setPage2} onNext={setPage3} setClickPos={setClickPos}/> );
+    } else {
+      setRenderStep2(false);
+    }
+
+  }, [page2]);
+
+
   return (
     <>
     {page1 && <Step1 onFinish={setPage1} onNext={setPage2}/> }
-    {page2 && <Step2 onFinish={setPage2} onNext={setPage3} setClickPos={setClickPos}/> }
-    {page3 && <Step3 onFinish={setPage3} fromPos={clickPos} renderPage={page3} />}
+    {renderStep2}
+    {page3 && <Step3 onFinish={setPage3} onPrevious={setPage2} fromPos={clickPos} renderPage={page3} />}
     </>
   )
 }

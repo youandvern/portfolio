@@ -38,6 +38,11 @@
   font-size: 30px;
 }
 
+.carousel-buttons p:hover{
+  text-shadow: 0 0 13px #F5FF1D;
+  transform: translateY(-3px);
+}
+
 .carousel-home{
   font-size: 0.8em;
 }

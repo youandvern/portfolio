@@ -48,3 +48,8 @@
   width: auto;
   height: auto;
 }
+
+.orbit-card i:hover{
+  text-shadow: 0 0 13px #F5FF1D;
+  transform: translateY(-3px);
+}

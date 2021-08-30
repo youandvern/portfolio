@@ -15,6 +15,14 @@ export default function Step3(props) {
     props.onNext(true);
   }
 
+  function previousStep(){
+    gsap.to(".main-outer-container", {scale:0, duration: 1, ease: "sine.inOut"});
+    gsap.to(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
+    setTimeout( () => props.onFinish(false), 1000);
+
+    props.onPrevious(true);
+  }
+
   function renderMotion() {
     gsap.to(".main-outer-container", {scale:1, duration: 1, ease: "sine.inOut"});
     gsap.from(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
@@ -22,15 +30,12 @@ export default function Step3(props) {
 
   useEffect(() => {
     renderMotion();
-    startWaveMotion();
-    console.log(props.renderPage);
+    return () => {
+    };
   }, []);
 
 
   function cleanTimelines(){
-  }
-
-  function startWaveMotion() {
   }
 
   function handleTextClick (id, reference) {
@@ -43,8 +48,8 @@ export default function Step3(props) {
 
   return (
     <>
-      {(props.renderPage == "menu0") && <ProjectCarousel />}
-      {(props.renderPage == "menu2") && <ContactOrbit /> }
+      {(props.renderPage == "menu0") && <ProjectCarousel lastPage={previousStep}/>}
+      {(props.renderPage == "menu2") && <ContactOrbit lastPage={previousStep} /> }
     </>
   )
 

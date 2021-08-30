@@ -11,6 +11,11 @@ export default function ContactOrbit(props) {
 
   const orbitAnim = useRef(gsap.timeline({repeat: -1}));
 
+  function closePage(){
+    gsap.to(".contact-orbit-container", {rotationX: 0, ease:"none", duration: 1});
+    props.lastPage();
+  }
+
   useEffect(() => {
     gsap.to(".contact-orbit-container", {rotationX: -20, ease:"none", duration: 1});
     gsap.to(".orbit-card-icon", {rotationX: 10, ease:"none", duration: 1});
@@ -47,9 +52,14 @@ export default function ContactOrbit(props) {
         <ContactIcon iconid="o5" goto = "https://www.instagram.com/youngandvern/" iconClass= "fab fa-instagram-square" altText="Instagram" />
       </div>
 
-      <div className="orbit-buttons" onClick={switchPlay}>
-        {orbitPlay && <p className="orbit-pause" > <i className="far fa-pause-circle"></i> </p>}
-        {!orbitPlay && <p className="orbit-play" > <i className="far fa-play-circle"></i> </p>}
+      <div className="orbit-buttons">
+        <div>
+          <p className="orbit-home" onClick={closePage}> <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
+        </div>
+        <div onClick={switchPlay}>
+          {orbitPlay && <p className="orbit-pause" > <i className="far fa-pause-circle" alt="pause" title="Pause"></i> </p>}
+          {!orbitPlay && <p className="orbit-play" > <i className="far fa-play-circle" alt="play" title="Play"></i> </p>}
+        </div>
       </div>
     </div>
   )

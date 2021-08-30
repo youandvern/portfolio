@@ -38,7 +38,7 @@ export default function ProjectCarousel(props) {
     <div className= "project-carousel-container main-outer-container" >
       <div className="carousel-buttons" >
         <p className="carousel-previous" onClick={carouselPrev} title="Previous"> &#8592; </p>
-        <p className="carousel-home" > <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
+        <p className="carousel-home" onClick={props.lastPage}> <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
         <p className="carousel-next" onClick={carouselNext} title="Next"> &#8594; </p>
       </div>
       <div className= "project-carousel" >

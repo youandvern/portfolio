@@ -70,14 +70,14 @@ export default function Step2(props) {
 
   function handleTextClick (id) {
     menu_id = id;
-    let first_click_tl = gsap.timeline({onComplete: finishStep});
+    let first_click_tl = gsap.timeline();
 
     const idno = id.slice(4);
     const def_delay = 0.4;
     const words = gsap.utils.toArray(".wordlink-outer-container");
     gsap.to(".text-shadow", {scale: 0, ease:"power3.in", duration: def_delay});
     for (let i=0; i<4; i++) {
-      let x_trans = 2000;
+      let x_trans = window.innerWidth;
       let spin_dur = 0.9 * Math.abs(idno-i);
       let tran_dur =  1.8 * Math.abs(idno-i);
       let spin_rep = Math.ceil( 3 / spin_dur);
@@ -93,6 +93,7 @@ export default function Step2(props) {
     }
 
     setTimeout( () => props.onNext(menu_id), 400);
+    setTimeout( () => finishStep(), 1000);
     cleanTimelines();
   }
 

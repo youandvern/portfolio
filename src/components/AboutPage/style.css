@@ -1,0 +1,55 @@
+:root{
+  --room-width: 70em;
+  --room-height: 45em;
+}
+
+.about-container{
+  margin: 0 auto;
+  width: var(--room-width);
+  height: var(--room-height);
+  top: max(25vh, 70px);
+  position: absolute;
+
+}
+
+.about-room{
+  transform-style: preserve-3d;
+  perspective: var(--room-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: calc(0.75 * var(--room-height));
+}
+
+.wall{
+  width: var(--room-width);
+  height: var(--room-height);
+  border: 2px black solid;
+  position: relative;
+
+}
+
+.wall img{
+  width: 15em;
+  height: 20em;
+}
+
+.left-wall{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: -2px;
+  transform-origin: right;
+  transform: rotateY(45deg) ;
+}
+.right-wall{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  transform-origin: left;
+  transform: rotateY(-45deg) ;
+}

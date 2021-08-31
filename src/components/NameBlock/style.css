@@ -1,7 +1,9 @@
 .name-block{
   text-align: center;
-  padding-top: 1em;
-  padding-bottom: max(15vh, 70px);
+  margin-top: 1em;
+  margin-bottom: max(15vh, 70px);
+  background: white;
+  z-index: 10;
 }
 
 .name-block p,  .name-block h3{

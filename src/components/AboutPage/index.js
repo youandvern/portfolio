@@ -19,8 +19,18 @@ export default function AboutPage(props) {
       <div className="about-container main-outer-container" >
         <div className="about-room">
           <div className="wall left-wall">
-            <div className="about-photo" >
-              <img src={aboutPhoto} alt="Profile Picture" />
+            <div className="about-photo-outer" >
+              <div className="about-photo-top" >
+              </div>
+              <div className="about-photo-side" >
+              </div>
+              <div className="about-photo-frame" >
+                <div className="about-photo-mat" >
+                  <div className="about-photo" >
+                    <img src={aboutPhoto} alt="Profile Picture" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="wall right-wall">

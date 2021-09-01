@@ -10,7 +10,7 @@ export default function ContactIcon(props) {
   return(
       <div className={classList} >
         <div className="orbit-card-icon" >
-          <a href={props.goto} target="_blank"> <i className={props.iconClass} alt={props.altText}></i> </a>
+          <a href={props.goto} target="_blank"> <i className={props.iconClass} alt={props.altText} title={props.altText}></i> </a>
         </div>
         <div className= "orbit-card-shadow"> </div>
        </div>

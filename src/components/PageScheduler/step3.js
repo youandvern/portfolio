@@ -17,7 +17,7 @@ export default function Step3(props) {
   }
 
   function previousStep(){
-    gsap.to(".main-outer-container", {scale:0, duration: 1, ease: "sine.inOut"});
+    gsap.to(".main-outer-container", {scale:0, duration: 0.7, ease: "sine.inOut"});
     gsap.to(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
     setTimeout( () => props.onFinish(false), 1000);
 

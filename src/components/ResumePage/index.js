@@ -9,17 +9,17 @@ export default function ResumePage(props) {
   return (
     <div className= "resume-outer-container main-outer-container" >
       <div className= "work-education" >
-        <div className= "work-outer" >
+        <div className= "resume-group work-outer" >
           <p>Work Experience </p>
 
           <div className= "work" >
             <WorkItem idno="1" title="Lead Developer and Founder" company="Encomp" />
             <WorkItem idno="2" title="Design Engineer" company="DN Tanks" />
             <WorkItem idno="3" title="Structural Engineer" company="Arup" />
-            <WorkItem idno="4" title="Intern" company="Engineering Ministries Internaional" />
+            <WorkItem idno="4" title="Intern" company="Engineering Ministries International" />
           </div>
         </div>
-        <div className= "education-outer" >
+        <div className= "resume-group education-outer" >
           <p>Education </p>
           <div className= "education" >
             <EduItem idno="1" school="Georgia Institute of Technology" degree="MS in Computer Science" extra="(ongoing)" />
@@ -30,11 +30,12 @@ export default function ResumePage(props) {
         </div>
       </div>
 
-      <div className="languages">
+      <div className="resume-group languages-outer">
+        <p>Languages and Technologies </p>
         <LanguageCloud />
       </div>
 
-      <div className="projects">
+      <div className="resume-group projects-outer">
         <ProjectButton />
       </div>
 

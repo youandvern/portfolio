@@ -5,7 +5,7 @@ function WorkItem(props) {
   return(
     <div className= {"work-item w" + props.idno} >
       <div className= "work-title"> {props.title} </div>
-      <div className= "work-company"> {props.company} </div>
+      <div className= "work-company"> <div> {props.company} </div> </div>
     </div>
   )
 }
@@ -25,14 +25,14 @@ function LanguageItem(props) {
   let fontsize = "font-size:" + size + ";";
   return(
     <div className= {"language-item"} >
-      <div className= "school-name" style={fontsize}> {props.text} </div>
+      <div className= "school-name" style={{fontSize: size + "em"}}> {props.text} </div>
     </div>
   )
 }
 
 function LanguageCloud(props) {
   return(
-    <>
+    <div className="language-cloud">
       <LanguageItem text="AWS" size={4} />
       <LanguageItem text="Material UI" size={2} />
       <LanguageItem text="Python" size={6} />
@@ -42,14 +42,14 @@ function LanguageCloud(props) {
       <LanguageItem text="Grasshopper" size={2} />
       <LanguageItem text="Git" size={5} />
       <LanguageItem text="VBA" size={1} />
-      <LanguageItem text="React" size={4} />
+      <LanguageItem text="HTML/CSS" size={6} />
       <LanguageItem text="SQL" size={3} />
       <LanguageItem text="Arduino" size={1} />
-      <LanguageItem text="HTML/CSS" size={6} />
+      <LanguageItem text="React" size={4} />
       <LanguageItem text="Flask" size={4} />
       <LanguageItem text="Linux Servers" size={2} />
       <LanguageItem text="NoSQL" size={3} />
-    </>
+    </div>
   )
 }
 

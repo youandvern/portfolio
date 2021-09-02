@@ -1,0 +1,94 @@
+
+.resume-outer-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.65em;
+}
+
+.resume-group {
+}
+
+.resume-group p{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.25em;
+  text-align: left;
+}
+
+.work-education{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.work-outer, .education-outer{
+  text-align: left;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.work-item{
+  cursor: default;
+  background: #242423;
+  border-radius: 0.5em;
+  line-height: 1.25;
+  padding: 0.25em;
+  margin-bottom: 0.15em;
+  color: #242423;
+
+  height: 1.5em;
+  transition: 0.8s;
+  transform-origin: top;
+}
+
+.work-title{
+  color: #d6d6d6;
+}
+
+.work-company{
+  font-size: 0.75em;
+  color: inherit;
+  margin-left: 2em;
+  transition: 0.8s;
+  transform: scale(1, 0.3);
+  transform-origin: top;
+
+}
+
+.work-item:hover {
+  transform: scale(1, 1);
+  background: white;
+  height: 2.5em;
+}
+
+.work-item:hover ~ .work-item{
+  transform: translateY(0.25em) ;
+
+}
+
+.work-item:hover .work-company{
+  transform: scale(1, 1);
+}
+
+.work-item:hover .work-title{
+  color: black;
+}
+
+.language-cloud{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 30em;
+  flex-wrap: wrap;
+}
+
+.language-item{
+  display: block;
+  font-size: 1.25em;
+  padding: 0.125em 0.25em;
+  text-decoration: none;
+  position: relative;
+}

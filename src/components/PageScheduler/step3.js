@@ -5,6 +5,7 @@ import {getRndWave, getRndScale, getRndDuration, getRndAmount} from './waves.js'
 import ProjectCarousel from '../ProjectCarousel';
 import ContactOrbit from '../ContactOrbit';
 import AboutPage from '../AboutPage';
+import ResumePage from '../ResumePage';
 
 // props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
 export default function Step3(props) {
@@ -52,6 +53,7 @@ export default function Step3(props) {
       {(props.renderPage == "menu0") && <ProjectCarousel lastPage={previousStep}/>}
       {(props.renderPage == "menu1") && <AboutPage lastPage={previousStep} /> }
       {(props.renderPage == "menu2") && <ContactOrbit lastPage={previousStep} /> }
+      {(props.renderPage == "menu3") && <ResumePage lastPage={previousStep} /> }
     </>
   )
 

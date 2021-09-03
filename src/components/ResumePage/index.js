@@ -3,6 +3,10 @@ import './style.css'
 import { useState, useEffect, useRef } from 'react';
 import {gsap} from 'gsap';
 import {WorkItem, EduItem, LanguageCloud, ProjectButton} from './minis.js'
+import uwLogo from './logos/UW.png';
+import cuLogo from './logos/Columbia.png';
+import gtLogo from './logos/GT.png';
+import wuLogo from './logos/Whitworth.png';
 
 
 export default function ResumePage(props) {
@@ -22,10 +26,10 @@ export default function ResumePage(props) {
         <div className= "resume-group education-outer" >
           <p>Education </p>
           <div className= "education" >
-            <EduItem idno="1" school="Georgia Institute of Technology" degree="MS in Computer Science" extra="(ongoing)" />
-            <EduItem idno="2" school="University of Washington" degree="MS in Civil Engineering"  />
-            <EduItem idno="3" school="Columbia University" degree="BS in Civil Engineering" extra="Mechanical Engineering Minor" />
-            <EduItem idno="4" school="Whitworth University" degree="BA in Applied Physics"  />
+            <EduItem idno="1" logo={gtLogo} school="Georgia Institute of Technology" degree="MS in Computer Science" extra="(ongoing)" />
+            <EduItem idno="2" logo={uwLogo} school="University of Washington" degree="MS in Civil Engineering"  />
+            <EduItem idno="3" logo={cuLogo} school="Columbia University" degree="BS in Civil Engineering" extra="Mechanical Engineering Minor" />
+            <EduItem idno="4" logo={wuLogo} school="Whitworth University" degree="BA in Applied Physics"  />
           </div>
         </div>
       </div>

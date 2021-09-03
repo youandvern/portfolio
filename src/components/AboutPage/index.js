@@ -53,7 +53,7 @@ export default function AboutPage(props) {
   function bringMenuButton(){
     menu_motion.set(".about-button", {yPercent: 330, opacity: 0 })
     .set(".about-button", {opacity: 1}, 1.5)
-    .to(".about-button", {yPercent: 0, duration: 3, ease: "back.out(1.2)"}, 2.5)
+    .to(".about-button", {yPercent: 0, duration: 3, ease: "back.out(1.2)"}, 2)
     .paused(false);
   };
 

@@ -10,7 +10,7 @@
 .link-text{
   position: relative;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 1em;
   text-shadow: 1px -1px 0 hsl(173, 0%, 70%),
         -1px -1px 0 hsl(173, 0%, 70%),
         1px -2px 0 hsl(173, 0%, 50%),

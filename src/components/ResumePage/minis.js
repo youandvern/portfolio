@@ -1,4 +1,7 @@
 import React from 'react';
+import { useState, useEffect, useRef } from 'react';
+import {gsap} from 'gsap';
+
 
 
 function WorkItem(props) {
@@ -65,9 +68,77 @@ function LanguageCloud(props) {
 
 function ProjectButton(props) {
 
+  let xfloat = [];
+  let yfloat = [];
+
+  useEffect(() => {
+    startWaveMotion();
+  }, []);
+
+  function startWaveMotion(){
+
+    let xgroup = gsap.utils.toArray(".project-button");
+    let ygroup = gsap.utils.toArray(".project-goto");
+    xfloat = [];
+    yfloat = [];
+
+    for (let j = 0; j<xgroup.length; j++){
+      let xtimeline = gsap.timeline({repeat: -1, delay: (xgroup.length-j-1)/2});
+
+      for (let i = 0; i < 2; i++) {
+        xtimeline.to(xgroup[j], {x: -4, ease: "sine.inOut", duration: 1.2})
+              .to(xgroup[j], {x: 4, ease: "sine.inOut", duration: 1.8})
+              .to(xgroup[j], {x: -6, ease: "sine.inOut", duration: 1.3});
+      };
+      xtimeline.to(xgroup[j], {x: 0, ease: "sine.inOut", duration: 1.2});
+
+      xfloat.push(xtimeline);
+    }
+
+    for (let j = 0; j<ygroup.length; j++){
+      let ytimeline = gsap.timeline({repeat: -1, delay: j/3});
+
+      for (let i = 0; i < 2; i++) {
+        ytimeline.to(ygroup[j], {y: 6, ease: "sine.inOut", duration: 1.8})
+              .to(ygroup[j], {y: -4, ease: "sine.inOut", duration: 1.2})
+              .to(ygroup[j], {y: 4, ease: "sine.inOut", duration: 1.6});
+      };
+      ytimeline.to(ygroup[j], {y: 0, ease: "sine.inOut", duration: 1.2});
+
+      yfloat.push(ytimeline);
+    }
+  }
+
   return(
     <div className= {"project-button-container"} >
-      <div className= "project-button"> <p>Projects</p> </div>
+      <div className= "project-title"> <p>Projects</p> </div>
+
+      <div className="project-button-group" >
+        <div className="project-button" >
+          <div className="project-goto" onClick={props.onClick}> <i className="fas fa-archive" alt="project" title="See Project"></i> </div>
+          <div className= "project-button-shadow"> </div>
+        </div>
+
+        <div className="project-button" >
+          <div className="project-goto" onClick={props.onClick}> <i className="fas fa-archive" alt="project" title="See Project"></i> </div>
+          <div className= "project-button-shadow"> </div>
+        </div>
+
+        <div className="project-button" >
+          <div className="project-goto" onClick={props.onClick}> <i className="fas fa-archive" alt="project" title="See Project"></i> </div>
+          <div className= "project-button-shadow"> </div>
+        </div>
+
+        <div className="project-button" >
+          <div className="project-goto" onClick={props.onClick}> <i className="fas fa-archive" alt="project" title="See Project"></i> </div>
+          <div className= "project-button-shadow"> </div>
+        </div>
+
+        <div className="project-button" >
+          <div className="project-goto" onClick={props.onClick}> <i className="fas fa-archive" alt="project" title="See Project"></i> </div>
+          <div className= "project-button-shadow"> </div>
+        </div>
+      </div>
     </div>
   )
 }

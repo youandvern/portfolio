@@ -113,7 +113,7 @@ export default function AboutPage(props) {
         </div>
         <div className="floor">
           <div className="about-button" >
-          <p className="about-home" onClick={closeAbout}> <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
+            <p className="about-home" onClick={closeAbout}> <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
           <div className= "about-button-shadow"> </div>
           </div>
         </div>

@@ -249,10 +249,50 @@
   text-shadow: 0 0 10px #F5FF1D;
 }
 
+.projects-outer{
+  width: 80%;
+}
+
+.project-button-container{
+  position: relative;
+}
+
+.project-button-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .project-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 2em;
 
 }
 
-.project-button:hover{
+.project-goto{
+  position: relative;
+  margin-bottom: 0.75em;
+}
 
+.project-button:hover .project-goto{
+  /* box-shadow: 0 0 10px 3px #F5FF1D; */
+  text-shadow: 0 0 13px #F5FF1D;
+  bottom: 3px;
+}
+
+
+.project-button-shadow{
+  content: '';
+  position: relative;
+  width: 1em;
+  height: 0.25em;
+  bottom: 0.2em;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4 );
+  z-index: -5;
+  filter: blur(0.1em);
 }

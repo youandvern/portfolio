@@ -12,7 +12,7 @@ function WorkItem(props) {
 
 function EduItem(props) {
   return(
-    <div className= {"edu-item e" + props.idno} >
+    <div className= {"edu-item e" + props.idno} onMouseEnter={props.onMouseEnter}>
       <div className="edu-container">
         <div className="school-text-container">
           <div className= "school-name"> {props.school} </div>
@@ -30,7 +30,6 @@ function EduItem(props) {
 
 function LanguageItem(props) {
   let size = props.size * 0.25 + 0.5;
-  let fontsize = "font-size:" + size + ";";
   return(
     <div className= {"language-item"} >
       <div className= "language-text" style={{fontSize: size + "em"}}> {props.text} </div>
@@ -68,7 +67,7 @@ function ProjectButton(props) {
 
   return(
     <div className= {"project-button-container"} >
-      <div className= "project-button"> Projects </div>
+      <div className= "project-button"> <p>Projects</p> </div>
     </div>
   )
 }

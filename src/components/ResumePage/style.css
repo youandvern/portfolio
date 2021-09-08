@@ -1,23 +1,57 @@
-
+:root{
+  --box-move-d: 10em;
+}
 .resume-outer-container{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-size: 0.65em;
+  font-size: 1em;
+  position: relative;
+  top: -2em;
 }
 
 .resume-group {
+  margin-bottom: 4em;
+  position: relative;
 }
 
 .resume-group p{
   font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+  font-weight: normal;
   font-size: 1.5em;
-  font-weight: bold;
   margin: 0.25em;
+  margin-bottom: .75em;
   text-align: center;
-  text-decoration: underline;
+  text-shadow: 1px -1px 0 hsl(173, 0%, 70%),
+        -1px -1px 0 hsl(173, 0%, 70%),
+        1px -2px 0 hsl(173, 0%, 50%),
+        -1px -2px 0 hsl(173, 0%, 50%);
+}
+
+.resume-group p::after{
+  content: "";
+  position: absolute;
+  top: -0em;
+  left: -1em;
+  bottom: -0em;
+  width: 125%;
+  transform-origin: left;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.6) 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(45deg) translate(-0em,1em);
+}
+
+/* https://cssanimation.rocks/pseudo-elements/ */
+.resume-group p:hover::after, .resume-group p:focus::after {
+  animation: sheen 1s forwards;
+}
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(45deg) translate(0em, -12em);
+  }
 }
 
 .work-education{
@@ -27,13 +61,17 @@
   flex-wrap: wrap;
 }
 
-.work-outer, .education-outer{
+.work-outer, .education-outer, .languages-outer{
   text-align: left;
-  margin-right: 1em;
-  margin-left: 1em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.work-outer{
+  z-index: 1;
 }
 
 .work-item{
@@ -89,14 +127,21 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 0.5em;
+  margin-left: -6em;
+  margin-right: -6em;
+  transition: 1s ease-out;
+  position: relative;
+}
+
+.education:hover{
+  transform: translate(var(--box-move-d),0);
 }
 
 .edu-item{
-  width: 25em;
-  height: 4.5em;
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  cursor: default;
 }
 
 .edu-container{
@@ -131,11 +176,11 @@
 }
 
 .e1 .school-text-container, .e3 .school-text-container, .e1 .school-facade, .e3 .school-facade{
-  right: calc(-100% + 3.25em);
+  right: calc(-100% + 4.25em);
 }
 
 .e2 .school-text-container, .e4 .school-text-container, .e2 .school-facade, .e4 .school-facade{
-  left: calc(-100% + 3.25em);
+  left: calc(-100% + 4.25em);
 }
 
 .edu-item:hover .school-text-container, .edu-item:hover .school-facade{
@@ -151,9 +196,8 @@
 }
 
 
-
 .school-logo img{
-  width: 3em;
+  width: 4em;
   filter: grayscale();
   transition: filter 0.15s;
 }
@@ -175,8 +219,6 @@
 
 
 
-
-
 .language-cloud{
   display: flex;
   flex-direction: row;
@@ -184,7 +226,6 @@
   align-items: center;
   max-width: 35em;
   flex-wrap: wrap;
-  margin-bottom: 3em;
 }
 
 .break {
@@ -194,7 +235,7 @@
 
 .language-item{
   display: block;
-  font-size: 1.25em;
+  font-size: 0.9em;
   padding: 0.125em 0.25em;
   text-decoration: none;
   position: relative;
@@ -203,7 +244,15 @@
 }
 
 .language-item:hover{
-  font-size: 1.5em;
+  font-size: 1.05em;
   font-weight: bold;
   text-shadow: 0 0 10px #F5FF1D;
+}
+
+.project-button{
+
+}
+
+.project-button:hover{
+
 }

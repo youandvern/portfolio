@@ -9,7 +9,7 @@ export default function ProjectCard(props) {
 
       <div className= "project-card">
         <div className="project-image">
-            {!props.video && <img src={props.image} alt="Project Image" /> }
+            {!props.video && <img src={props.image} alt="Project" /> }
             {props.video && <video className="project-video" autoPlay loop muted playsInline>
                               <source src={props.video} type="video/mp4" />
                                 Video showing {props.content.title}.

@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css'
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import {gsap} from 'gsap';
 import {WorkItem, EduItem, LanguageCloud, ProjectButton} from './minis.js'
 import uwLogo from './logos/UW.png';
@@ -11,11 +11,22 @@ import wuLogo from './logos/Whitworth.png';
 
 export default function ResumePage(props) {
 
+  useEffect(() => {
+    gsap.to('.resume-button', {opacity:1, duration:1, ease:"sine.inOut", delay:2});
+  }, []);
+
   function moveLeft(){
     document.documentElement.style.setProperty("--box-move-d", '-6em');
   }
   function moveRight(){
     document.documentElement.style.setProperty("--box-move-d", '6em');
+  }
+
+  function closeResume(){
+    props.lastPage();
+    // gsap.to('.wall', {scale: 0, duration: 0.7});
+    // gsap.to('.floor', {opacity: 0, duration: 0.3});
+
   }
 
   return (
@@ -50,7 +61,11 @@ export default function ResumePage(props) {
       </div>
 
       <div className="resume-group projects-outer">
-        <ProjectButton />
+        <ProjectButton onClick={props.toProjects}/>
+      </div>
+
+      <div className="resume-button" >
+        <p className="resume-home" onClick={closeResume}> <i className="fas fa-bars" alt="menu" title="Menu"></i> </p>
       </div>
 
     </div>

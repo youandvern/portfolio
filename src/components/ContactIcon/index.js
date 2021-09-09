@@ -1,7 +1,5 @@
 import React from 'react';
 import './style.css'
-import { useState, useEffect, useRef } from 'react';
-import {gsap} from 'gsap';
 
 // props to include:  ** iconid  ** goto  ** iconClass ** altText
 export default function ContactIcon(props) {
@@ -10,7 +8,7 @@ export default function ContactIcon(props) {
   return(
       <div className={classList} >
         <div className="orbit-card-icon" >
-          <a href={props.goto} target="_blank"> <i className={props.iconClass} alt={props.altText} title={props.altText}></i> </a>
+          <a href={props.goto} target="_blank" rel="noreferrer"> <i className={props.iconClass} alt={props.altText} title={props.altText}></i> </a>
         </div>
         <div className= "orbit-card-shadow"> </div>
        </div>

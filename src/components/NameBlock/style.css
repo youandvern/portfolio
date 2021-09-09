@@ -1,7 +1,8 @@
 .name-block{
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: max(15vh, 70px);
+  position: absolute;
+  top: var(--top-n);
+  /* margin-bottom: max(15vh, 70px); */
   background: white;
   z-index: 10;
 }

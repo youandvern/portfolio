@@ -1,14 +1,16 @@
 :root{
   --box-move-d: 10em;
 }
+
 .resume-outer-container{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   font-size: 1em;
-  position: relative;
-  top: -2em;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 7%;
 }
 
 .resume-group {
@@ -59,6 +61,7 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 0.5em;
 }
 
 .work-outer, .education-outer, .languages-outer{
@@ -72,6 +75,7 @@
 
 .work-outer{
   z-index: 1;
+
 }
 
 .work-item{
@@ -296,3 +300,38 @@
   z-index: -5;
   filter: blur(0.1em);
 }
+
+
+.resume-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: -1em;
+  font-size: 1.4em;
+  opacity: 0;
+}
+
+.resume-button p{
+  margin: 0;
+}
+
+.resume-button:hover p{
+  position: relative;
+  /* box-shadow: 0 0 10px 3px #F5FF1D; */
+  text-shadow: 0 0 13px #F5FF1D;
+  bottom: 3px;
+}
+
+/* .resume-button-shadow{
+  content: '';
+  position: relative;
+  width: 1em;
+  height: 0.25em;
+  bottom: 0.2em;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4 );
+  z-index: -5;
+  filter: blur(0.1em);
+} */

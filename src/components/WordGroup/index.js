@@ -1,14 +1,9 @@
 import React from 'react';
 import './style.css'
-import { useState, useEffect } from 'react';
 import WordLink from '../WordLink';
-import {gsap} from 'gsap';
 
-// props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
+
 export default function WordGroup(props) {
-  // props.onClick
-  // props.references
-
 
   return(
     <div className= "wordlink-list" >

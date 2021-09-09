@@ -26,7 +26,7 @@ export default function AboutPage(props) {
     return function unhideBody () {
       document.body.style.overflow = "auto";
     };
-  }, []);
+  });
 
   function closeAbout(){
     props.lastPage();
@@ -90,7 +90,7 @@ export default function AboutPage(props) {
               <div className="about-photo-frame" >
                 <div className="about-photo-mat" >
                   <div className="about-photo" >
-                    <img src={aboutPhoto} alt="Profile Picture" />
+                    <img src={aboutPhoto} alt="headshot" />
                   </div>
                 </div>
               </div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import './style.css'
-import { useState } from 'react';
 
-// props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
 export default function Planet(props) {
 
   return(

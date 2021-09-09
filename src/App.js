@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import PageScheduler from './components/PageScheduler';
 import NameBlock from './components/NameBlock';

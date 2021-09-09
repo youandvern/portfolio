@@ -1,5 +1,11 @@
-body {
- font-family: 'Enriqueta', serif;
+:root{
+  --top-n: max(15vh, 5px);
+  --top-o: calc(var(--top-n) + 90px);
+}
+
+html, body {
+  min-height: 520px;
+  font-family: 'Enriqueta', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,5 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 150px;
+  margin-bottom: 0px;
+  position: absolute;
+  top: calc(var(--top-o) + 10vh);
 }

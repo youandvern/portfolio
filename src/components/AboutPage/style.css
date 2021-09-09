@@ -1,15 +1,15 @@
 :root{
-  --room-width: 70em;
-  --room-height: 45em;
+  --room-width: 60vw;
+  --room-height: max(130vh, 600px);
 }
 
 .about-container{
   margin: 0 auto;
   width: var(--room-width);
   height: var(--room-height);
-  top: max(25vh, 70px);
+  top: 2vh;
   position: absolute;
-  transform-origin: 50% 17%;
+  transform-origin: 50% 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,7 +193,7 @@
 
 .floor{
   position: relative;
-  top: -31em;
+  top: min(-90vh, -470px) ;
 }
 
 .about-button{

@@ -21,7 +21,19 @@ export default function Step2(props) {
 
   useEffect(() => {
     renderMotion();
-    startWaveMotion();
+
+    if (props.menu == "menu0"){
+      props.setMenu(false);
+
+      for (let i=0; i<menu_refs.length; i++){
+        menu_refs[i].current.style.cursor = "not-allowed";
+      }
+
+      setTimeout(() => {handleContainerClick(menu_refs[0]); handleTextClick("menu0")}, 1000);
+    } else {
+      startWaveMotion();
+    }
+
   }, []);
 
   let scale_float = gsap.timeline({repeat: -1});

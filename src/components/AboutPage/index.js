@@ -5,15 +5,14 @@ import {gsap} from 'gsap';
 import aboutPhoto from './ay_photo.jpg';
 
 
-// props to include:  ** iconid  ** goto  ** iconClass ** altText
 export default function AboutPage(props) {
 
-  const [textPlay, setTextPlay] = useState(true);
-  const text_slider = useRef(gsap.timeline({repeat: -1}));
+  const [textPlay, setTextPlay] = useState(false);
+  const text_slider = useRef(gsap.timeline({repeat: -1, paused:true }));
 
-  let xfloat = gsap.timeline({repeat: -1});
-  let yfloat = gsap.timeline({repeat: -1});
-  let menu_motion = gsap.timeline({onComplete: startWaveMotion, paused: true});
+  const menu_motion = useRef(gsap.timeline({onComplete: startWaveMotion, paused: true}));
+  const xfloat = useRef(gsap.timeline({repeat: -1, paused: true}));
+  const yfloat = useRef(gsap.timeline({repeat: -1, paused: true}));
 
   useEffect(() => {
     text_slider.current.paused( !textPlay );
@@ -26,32 +25,26 @@ export default function AboutPage(props) {
     return function unhideBody () {
       document.body.style.overflow = "auto";
     };
-  });
+  }, []);
 
   function closeAbout(){
     props.lastPage();
-    xfloat.paused(true);
-    yfloat.paused(true);
-    // gsap.to('.wall', {scale: 0, duration: 0.7});
+    xfloat.current.paused(true);
+    yfloat.current.paused(true);
     gsap.to('.floor', {opacity: 0, duration: 0.3});
 
   }
 
   function beginTextRotation(){
-    let text_elements = gsap.utils.toArray(".about-text-item");
-    gsap.set(text_elements, {yPercent:110});
-    for (let j=0; j<20; j++){
-      for( let i=0; i<text_elements.length; i++){
-        let elem = text_elements[i];
-        text_slider.current.to(elem, { yPercent:0, duration: 0.5 }, "-=0.4")
-        .to(elem, {yPercent:-110, duration: 0.5}, ">3")
-        .set(elem,{yPercent:110}, ">");
-      }
-    }
+    text_slider.current.to(".about-text-container", {rotationX: 90, ease:"power2.inOut", duration:1}, "+=0.3")
+    .to(".about-text-container", {rotationX: 180, ease:"power2.inOut", duration:1}, "+=0.3")
+    .to(".about-text-container", {rotationX: 270, ease:"power2.inOut", duration:1}, "+=0.3")
+    .to(".about-text-container", {rotationX: 360, ease:"power2.inOut", duration:1}, "+=0.3");
+    // text_slider.current.paused( true );
   };
 
   function bringMenuButton(){
-    menu_motion.set(".about-button", {yPercent: 330, opacity: 0 })
+    menu_motion.current.set(".about-button", {yPercent: 330, opacity: 0 })
     .set(".about-button", {opacity: 1}, 1.5)
     .to(".about-button", {yPercent: 0, duration: 3, ease: "back.out(1.2)"}, 2)
     .paused(false);
@@ -59,21 +52,24 @@ export default function AboutPage(props) {
 
   function startWaveMotion(){
 
-    xfloat.clear();
+    xfloat.current.clear();
     for (let i = 0; i < 2; i++) {
-      xfloat.to(".about-button", {x: -3, ease: "sine.inOut", duration: 1.2})
+      xfloat.current.to(".about-button", {x: -3, ease: "sine.inOut", duration: 1.2})
             .to(".about-button", {x: 3, ease: "sine.inOut", duration: 1.8})
             .to(".about-button", {x: -5, ease: "sine.inOut", duration: 1.3});
     };
-    xfloat.to(".about-button", {x: 0, ease: "sine.inOut", duration: 1.2});
+    xfloat.current.to(".about-button", {x: 0, ease: "sine.inOut", duration: 1.2});
 
-    yfloat.clear();
+    yfloat.current.clear();
     for (let i = 0; i < 2; i++) {
-      yfloat.to(".about-home", {y: 5, ease: "sine.inOut", duration: 1.8})
+      yfloat.current.to(".about-home", {y: 5, ease: "sine.inOut", duration: 1.8})
             .to(".about-home", {y: -3, ease: "sine.inOut", duration: 1.2})
             .to(".about-home", {y: 3, ease: "sine.inOut", duration: 1.6});
     };
-    yfloat.to(".about-home", {y: 0, ease: "sine.inOut", duration: 1.2});
+    yfloat.current.to(".about-home", {y: 0, ease: "sine.inOut", duration: 1.2});
+
+    xfloat.current.paused(false);
+    yfloat.current.paused(false);
   }
 
 
@@ -102,11 +98,13 @@ export default function AboutPage(props) {
               <p> My name is Andrew Young and I’m a software engineer. </p>
             </div>
 
-            <div className="about-text-container" onMouseEnter={() => setTextPlay(false)} onMouseLeave={() => setTextPlay(true)}>
-              <p className="about-text-item"> I have a passion for reaching the world through exciting websites and automating the tasks we don’t want to spend our time on.  </p>
-              <p className="about-text-item"> My diverse education and career experiences inform my ability to build creative, dependable, and user-centered projects. </p>
-              <p className="about-text-item"> I currently live in California with my beautiful wife and dog, but I’ve also lived in Washington, New York, Maryland, and India!   </p>
-              <p className="about-text-item"> I love being outdoors whether it’s running, skiing, hiking, surfing, kayaking, playing ultimate frisbee, or nearly anything else.  </p>
+            <div className="about-text-outer" onMouseEnter={() => setTextPlay(true)} onMouseLeave={() => setTextPlay(false)}>
+              <div className="about-text-container" >
+                <div className="about-text-item ati0"> I have a passion for reaching the world through exciting websites and automating the tasks we don’t want to spend our time on.  </div>
+                <div className="about-text-item ati1"> My diverse education and career experiences inform my ability to build creative, dependable, and user-centered projects. </div>
+                <div className="about-text-item ati2"> I currently live in California with my beautiful wife and dog, but I’ve also lived in Washington, New York, Maryland, and India!   </div>
+                <div className="about-text-item ati3"> I love being outdoors whether it’s running, skiing, hiking, surfing, kayaking, playing ultimate frisbee, or nearly anything else.  </div>
+              </div>
             </div>
 
           </div>

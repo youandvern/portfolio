@@ -6,16 +6,14 @@ import ContactOrbit from '../ContactOrbit';
 import AboutPage from '../AboutPage';
 import ResumePage from '../ResumePage';
 
-// props to include:  ** setFinished function to change state after finish imploding   ** optional text inside of planet
 export default function Step3(props) {
-  //
-  // props.onFinish()
 
   function finishStep(){
     props.onFinish(false);
     props.onNext(true);
   }
 
+  // go back to menu
   function previousStep(){
     gsap.to(".main-outer-container", {scale:0, duration: 0.7, ease: "sine.inOut"});
     gsap.to(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
@@ -24,11 +22,13 @@ export default function Step3(props) {
     props.onPrevious(true);
   }
 
+  // auto navigate to projects page
   function toProjects(){
     props.toMenu("menu0");
     previousStep();
   }
 
+  // scale from 0
   function renderMotion() {
     gsap.to(".main-outer-container", {scale:1, duration: 1, ease: "sine.inOut"});
     gsap.from(".main-outer-container", {x: props.fromPos.x - window.innerWidth/2, y:0, duration: 1, ease: "sine.inOut"});
@@ -36,20 +36,7 @@ export default function Step3(props) {
 
   useEffect(() => {
     renderMotion();
-    return () => {
-    };
   }, []);
-
-
-  function cleanTimelines(){
-  }
-
-  function handleTextClick (id, reference) {
-
-    let first_click_tl = gsap.timeline({onComplete: finishStep});
-
-    cleanTimelines();
-  }
 
 
   return (

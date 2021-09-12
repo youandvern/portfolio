@@ -1,7 +1,7 @@
 :root{
-  --pers: max(-22vw, -44vh);
-  --card-w: min(20vw, 40vh);
-  --card-h: min(20vw, 40vh);
+  --pers: max(-32vw, -50vh);
+  --card-w: min(32vw, 46vh);
+  --card-h: min(32vw, 46vh);
 }
 
 .project-carousel-container{
@@ -66,4 +66,11 @@
 }
 .f{
   transform: rotateY(300deg) translateZ(var(--pers));
+}
+
+@media only screen and (max-width: 427px) {
+  /* For mobile phones: */
+  [class*="project-carousel-container"] {
+    top: -3vh;
+  }
 }

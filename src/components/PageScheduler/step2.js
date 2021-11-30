@@ -29,7 +29,7 @@ export default function Step2(props) {
     // navigate directly to projects page if projects clicked from resume page, reset menu
     if (props.menu == "menu0"){
       props.setMenu(false);
-      setTimeout(() => {handleContainerClick(menu_refs[0]); handleTextClick("menu0")}, 1000);
+      setTimeout(() => { handleTextClick("menu0", menu_refs[0])}, 1000);
 
       // begin wave motion when rendered
     } else {
@@ -82,8 +82,11 @@ export default function Step2(props) {
     props.setClickPos({x: (click_position.x + click_position.width / 2 ), y: click_position.y})
   }
 
-  function handleTextClick (id) {
+  function handleTextClick (id, reference) {
     menu_id.current = id;
+
+    let click_position = reference.current.getBoundingClientRect();
+    props.setClickPos({x: (click_position.x + click_position.width / 2 ), y: click_position.y})
 
 
     const idno = id.slice(4);
@@ -115,7 +118,7 @@ export default function Step2(props) {
 
 
   return (
-    <WordGroup onClick={handleTextClick} onContainerClick={handleContainerClick} references={menu_refs}/>
+    <WordGroup onClick={handleTextClick}  references={menu_refs}/>
   )
 
 }

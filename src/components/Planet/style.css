@@ -1,9 +1,9 @@
-:root {
+
+.planet {
   --ph: 173;  /* Planet Color Hue */
   --ps: 0%;   /* Planet Color Saturation */
   --ps2: 0%;  /* Planet Color Saturation (outer - should be a bit higher) */
   --pl: 92%;  /* optional planet baseline lightness */
-
 }
 
 /* div holding planet and shadow */

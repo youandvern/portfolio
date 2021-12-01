@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useEffect, useRef } from 'react';
 import {gsap} from 'gsap';
 import {getRndWave, getRndScale, getRndDuration, getRndAmount} from './waves.js'
@@ -6,7 +6,24 @@ import WordGroup from '../WordGroup';
 
 export default function Step2(props) {
 
-  const menu_refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  
+  const menu_items = ["PROJECTS", "ABOUT", "CONTACT", "RESUME"];
+  const menu_refs = useRef([]);
+
+  useEffect(() => {
+    menu_refs.current = menu_refs.current.slice(0, menu_items.length);
+  }, [menu_items]);
+
+  // const wordLinkDetails = [{id: {string}, text: {string} reference: {useRef}, onClick: {function no args}}]
+  const wordLinkDetails = menu_items.map((text, index) =>
+    ({
+      id: ("menu"+index),
+      text: text,
+      reference: menu_refs.current[index],
+      onClick: () => handleTextClick(this.id, this.reference )
+    })
+  );
+
   const menu_id = useRef('menu0');
 
   const scale_float = useRef(gsap.timeline({repeat: -1, paused: true}));
@@ -118,7 +135,7 @@ export default function Step2(props) {
 
 
   return (
-    <WordGroup onClick={handleTextClick}  references={menu_refs}/>
+    <WordGroup wordLinkDetails={wordLinkDetails} />
   )
 
 }

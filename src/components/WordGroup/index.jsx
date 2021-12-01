@@ -3,17 +3,34 @@ import "./style.css";
 import WordLink from "../WordLink";
 
 /**
- * Menu component which is a collection of WordLinks as menu options.
- * @param   {Object[]} references  Array of useRef hooks for accessing
- * @param   {string} text       Last Name of the User
- * @return  {html}
+ * Menu component which is a collection of WordLinks as menu options. Currently cannot be updated dynamically.
+ * @param   {Object[]} wordLinkDetails  Details used to create WordLink menu items.
+ * @param   {string} wordLinkDetails[].id  Unique id used in WordLink menu item.
+ * @param   {string} wordLinkDetails[].text  Display text for WordLink menu item.
+ * @param   {useRef} wordLinkDetails[].reference  Unique useRef hook attached to WordLink menu item.
+ * @param   {function} wordLinkDetails[].onClick  No-argument function called when WordLink menu item is clicked.
+ * @return  {html} 
  */
-export default function WordGroup(props) {
-  // const props = [{reference: 1, onClick: 2}]
+export default function WordGroup({wordLinkDetails}) {
+  // wordLinkDetails = [{id: string, text: string, reference: useRef(null), onClick: function no args}, ...]
+  const WRDLNKS = wordLinkDetails.map( (menuItem, index) => 
+    <WordLink
+      key={"word-group-link-"+index}
+      text= {menuItem.text}
+      textref={menuItem.reference}
+      menuid= {menuItem.id}
+      onClick={() => menuItem.onClick()} 
+    />
+  );
 
   return (
     <div className="wordlink-list">
-      <WordLink
+      {WRDLNKS}
+    </div>
+  );
+}
+
+{/* <WordLink
         text="PROJECTS"
         textref={props.references[0]}
         menuid="menu0"
@@ -36,7 +53,4 @@ export default function WordGroup(props) {
         textref={props.references[3]}
         menuid="menu3"
         onClick={() => props.onClick("menu3", props.references[3])}
-      />
-    </div>
-  );
-}
+      /> */}

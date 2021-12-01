@@ -5,7 +5,7 @@ import { getRndWave, getRndScale, getRndDuration, getRndAmount } from "./waves.j
 import WordGroup from "../WordGroup";
 
 /**
- * Menu component which is a collection of WordLinks as menu options. Currently cannot be updated dynamically.
+ * Menu display controller which displays the WordGroup menu and handles animations. Currently cannot be updated dynamically.
  * @param   {function(boolean)} onFinish  Function will be called with param=false when ready to unmount this component.
  * @param   {function(string)} onNext  Function will be called with param=id when ready to show next component (Id).
  * @param   {function({x: Float32Array, y: float})} setClickPos  Function will be called with param=clickLocation when a menu item is clicked.

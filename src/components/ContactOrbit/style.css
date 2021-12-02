@@ -1,8 +1,8 @@
-:root{
+:root {
   --orbit: min(35vh, 50vw);
 }
 
-.contact-orbit-container{
+.contact-orbit-container {
   margin: 0 auto;
   width: 20vh;
   height: 50vh;
@@ -13,14 +13,14 @@
   transform-origin: 35% 25%;
 }
 
-.contact-orbit{
+.contact-orbit {
   height: 100%;
   width: 100%;
   position: absolute;
   transform-style: preserve-3d;
 }
 
-.orbit-buttons{
+.orbit-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -32,7 +32,7 @@
   z-index: 6;
 }
 
-.orbit-buttons p{
+.orbit-buttons p {
   padding-left: 0.25em;
   padding-right: 0.25em;
   margin: 0;
@@ -41,24 +41,23 @@
   font-size: 1.25em;
 }
 
-.orbit-buttons p:hover{
-  text-shadow: 0 0 13px #F5FF1D;
+.orbit-buttons p:hover {
+  text-shadow: 0 0 13px #f5ff1d;
   transform: translateY(-3px);
 }
 
-
-.o1{
+.o0 {
   transform: rotateY(0deg) translateZ(var(--orbit));
 }
-.o2{
+.o1 {
   transform: rotateY(72deg) translateZ(var(--orbit));
 }
-.o3{
+.o2 {
   transform: rotateY(144deg) translateZ(var(--orbit));
 }
-.o4{
+.o3 {
   transform: rotateY(216deg) translateZ(var(--orbit));
 }
-.o5{
+.o4 {
   transform: rotateY(288deg) translateZ(var(--orbit));
 }

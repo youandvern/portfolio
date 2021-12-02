@@ -10,7 +10,7 @@ import Planet from "../Planet";
  * @param   {function(boolean)} onNext  Function will be called with param=true when ready to show next component.
  * @return  {html}
  */
-export default function Step1(props) {
+export default function Step1({ onFinish, onNext }) {
   // refs used for wave timelines
   const scale_float = useRef(gsap.timeline({ repeat: -1, paused: true }));
   const xfloat = useRef(gsap.timeline({ repeat: -1, paused: true }));
@@ -18,8 +18,8 @@ export default function Step1(props) {
 
   // set this step to false (unmount), next step to true (mount)
   function finishStep() {
-    props.onFinish(false);
-    props.onNext(true);
+    onFinish(false);
+    onNext(true);
   }
 
   // start wave motions on component mount
@@ -37,21 +37,45 @@ export default function Step1(props) {
   // Set up 3D wave motions
   function startPlanetMotion() {
     scale_float.current.clear();
+
     for (let i = 0; i < 8; i++) {
-      scale_float.current.to(".planet-container", { scale: getRndScale(), ease: "sine.inOut", duration: getRndDuration() });
+      scale_float.current.to(".planet-container", {
+        scale: getRndScale(),
+        ease: "sine.inOut",
+        duration: getRndDuration(),
+      });
     }
-    scale_float.current.to(".planet-container", { scale: 1.0, ease: "sine.inOut", duration: getRndDuration() });
+
+    scale_float.current.to(".planet-container", {
+      scale: 1.0,
+      ease: "sine.inOut",
+      duration: getRndDuration(),
+    });
 
     xfloat.current.clear();
     for (let i = 0; i < 13; i++) {
-      xfloat.current.to(".planet-and-shadow", { x: getRndWave(), ease: "sine.inOut", duration: getRndDuration() });
+      xfloat.current.to(".planet-and-shadow", {
+        x: getRndWave(),
+        ease: "sine.inOut",
+        duration: getRndDuration(),
+      });
     }
-    xfloat.current.to(".planet-and-shadow", { x: 0, ease: "sine.inOut", duration: getRndDuration() });
+
+    xfloat.current.to(".planet-and-shadow", {
+      x: 0,
+      ease: "sine.inOut",
+      duration: getRndDuration(),
+    });
 
     yfloat.current.clear();
     for (let i = 0; i < 12; i++) {
-      yfloat.current.to(".planet", { y: getRndWave(), ease: "sine.inOut", duration: getRndDuration() });
+      yfloat.current.to(".planet", {
+        y: getRndWave(),
+        ease: "sine.inOut",
+        duration: getRndDuration(),
+      });
     }
+
     yfloat.current.to(".planet", { y: 0, ease: "sine.inOut", duration: getRndDuration() });
 
     // Play motions when steps are all defined
@@ -86,7 +110,10 @@ export default function Step1(props) {
 
     let first_click_tl = gsap.timeline({ onComplete: finishStep });
     // start click motion, end with scale to 0
-    first_click_tl.add(shakeMotion()).to(".planet-text", { scale: 0, ease: "power3.inOut", duration: 0.4 }, 0).to([".planet", ".planet-shadow"], { scale: 0, ease: "power3.in", duration: 0.4 });
+    first_click_tl
+      .add(shakeMotion())
+      .to(".planet-text", { scale: 0, ease: "power3.inOut", duration: 0.4 }, 0)
+      .to([".planet", ".planet-shadow"], { scale: 0, ease: "power3.in", duration: 0.4 });
   }
 
   return <Planet text="" onClick={handleFirstClick} />;
